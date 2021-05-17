@@ -14,6 +14,7 @@ public class DatabaseUtil {
 		try {
 			Connection cn = getConnection();
 			Statement stmt = cn.createStatement();
+			stmt.execute("DROP TABLE IF EXISTS PHONEBOOK"); // enhanced to add drop table, to allow multiple times execution in a cleaner way.
 			stmt.execute("CREATE TABLE PHONEBOOK (NAME varchar(255), PHONENUMBER varchar(255), ADDRESS varchar(255))");
 			stmt.execute("INSERT INTO PHONEBOOK (NAME, PHONENUMBER, ADDRESS) VALUES('Chris Johnson','(321) 231-7876', '452 Freeman Drive, Algonac, MI')");
 			stmt.execute("INSERT INTO PHONEBOOK (NAME, PHONENUMBER, ADDRESS) VALUES('Dave Williams','(231) 502-1236', '285 Huron St, Port Austin, MI')");
